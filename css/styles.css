@@ -10,6 +10,7 @@
     --footer-sociolink--main-color: rgba(255, 255, 255, 1);
     --footer-sociolink--accent-color: rgba(33, 150, 243, 1);
     --footer-sociolink--bcc-color: rgba(255, 255, 255, 0.1);
+    --portfolio-cards-overlay: rgba(33, 150, 243, 0.9);
 
 
 }
@@ -73,7 +74,6 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .header-nav {
-    position: relative;
     margin-left: 93px;
 }
 
@@ -143,6 +143,10 @@ h1, h2, h3, h4, h5, h6, p {
     fill: var(--blue-accent);
 }
 
+.header-nav .item {
+    position: relative;
+
+}
 .current::after {
     content: "";
     position: absolute;
@@ -151,6 +155,7 @@ h1, h2, h3, h4, h5, h6, p {
     width: 100%;
     height: 4px;
     border-radius: 2px;
+    
     background-color: var(--blue-accent);
 }
 
@@ -206,6 +211,33 @@ h1, h2, h3, h4, h5, h6, p {
     border: transparent;
 }
 
+/*---------------- Modal---------------- */
+
+.blackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.blackdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 221px 536px;
+    /* width: 528px;
+    height: 581px; */
+    background-color: red;
+}
 
 /* info */
 
@@ -289,21 +321,12 @@ h1, h2, h3, h4, h5, h6, p {
     margin-right: 30px;
 }
 
-/* -----------Covering ----------*/
+/* -----------Our work overlay ----------*/
 
 .work-thumb {
     position: relative;
 }
 
-.work-thumb::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 70px;
-    width: 100%;
-    background-color: rgba(47, 48, 58, 0.8);
-}
 
 .work-cover {
     position: absolute;
@@ -315,12 +338,15 @@ h1, h2, h3, h4, h5, h6, p {
     font-weight: 700;
     font-size: 14px;
     line-height: 1.14;
-    text-align: center;
     text-transform: uppercase;
-    padding-bottom: 27px;
-
 
     color: var(--main-white);
+
+    height: 70px;
+    background-color: rgba(47, 48, 58, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* our team */
@@ -653,4 +679,32 @@ img {
 .portfolio-link:hover,
 .portfolio-link:focus {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+.portfolio-thumb {
+    position: relative;
+}
+
+.project-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    padding: 63px 24px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    line-height: 1.56;
+    color: var(--main-white);
+    background-color: var(--portfolio-cards-overlay);
+
+    opacity: 0;
+}
+
+.portfolio-link:hover .project-text {
+    opacity: 1;
 }
